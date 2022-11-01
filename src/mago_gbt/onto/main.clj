@@ -1,12 +1,12 @@
 (ns mago-gbt.onto.main)
 
-(defn ogetf [o]
+(defn oget [o]
       (fn [k]
           ((k o) o)))
 
 (defn ocall [o]
       (fn [k & args]
-          (apply ((((:ogetf o) o) k) o)
+          (apply ((:oget o) k)
                  args)))
 
 (defn otransform [o]
@@ -31,7 +31,7 @@
           (assoc o n f)))
 
 (def base
-     {:getf ogetf
+     {:get oget
       :call ocall
       :transform otransform
       :reduce oreduce
