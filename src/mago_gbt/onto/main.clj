@@ -31,8 +31,8 @@
           (assoc o n f)))
 
 (def base
-     {:get oget
-      :call ocall
-      :transform otransform
-      :reduce oreduce
-      :register oregister})
+     {:oget oget
+      :ocall ocall
+      :otransform otransform
+      :oreduce oreduce
+      :oregister oregister})
