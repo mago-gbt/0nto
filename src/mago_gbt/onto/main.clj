@@ -6,7 +6,7 @@
 
 (defn ocall [o]
       (fn [k & args]
-          (apply ((:oget o) k)
+          (apply (((:get o) o) k)
                  args)))
 
 (defn otransform [o]
