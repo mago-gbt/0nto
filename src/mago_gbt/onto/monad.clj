@@ -4,17 +4,21 @@
       {:mresult (fn [v]
                    (fn [s]
                        ((:mresult m) [v s])))
+
        :mbind (fn [stm f]
                  (fn [s]
                      ((:mbind m) (stm s)
-                                (fn [[v s']]
-                                  ((f v) s')))))
+                                 (fn [[v s']]
+                                   ((f v) s')))))
+
        :mzero (fn [s]
-                 (:mzero m))
+                (:mzero m))
+
        :mplus (fn [stm stm']
                  (fn [s]
                      ((:mplus m) (stm s)
-                                (stm' s))))
+                                 (stm' s))))
+
        :mupdate (fn [f]
                     (fn [s]
                         (if (empty? s)
